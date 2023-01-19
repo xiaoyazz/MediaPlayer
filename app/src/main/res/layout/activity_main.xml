@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="270dp"
+        android:layout_height="41dp"
         android:layout_marginBottom="636dp"
         android:text="Music Player App"
         android:textSize="32sp"
@@ -23,10 +23,10 @@
         android:id="@+id/imageview"
         android:layout_width="271dp"
         android:layout_height="278dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="32dp"
         android:src="@drawable/music_play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -79,8 +79,10 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/forward_btn"
         app:layout_constraintTop_toBottomOf="@+id/imageview"
+        app:layout_constraintVertical_bias="0.295"
         app:layout_editor_absoluteX="16dp"
-        app:layout_editor_absoluteY="521dp" />
+        app:layout_editor_absoluteY="521dp"
+        tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/time_left_text"
@@ -89,22 +91,24 @@
         android:text="small_Text"
         app:layout_constraintBottom_toTopOf="@+id/forward_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.029"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
-        app:layout_constraintVertical_bias="0.173" />
+        app:layout_constraintVertical_bias="0.172" />
 
     <TextView
         android:id="@+id/song_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:text="Song Title"
+        android:text=""
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/play_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.687" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

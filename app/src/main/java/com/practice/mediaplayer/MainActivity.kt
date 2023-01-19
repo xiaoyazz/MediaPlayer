@@ -62,6 +62,15 @@ class MainActivity : AppCompatActivity() {
                 R.raw.bounce
             )
 
+        // Set the audio name as song title
+        // For more songs in the future, this attribute should be turned into a method
+        titleText.setText(
+            resources.getIdentifier(
+            "bounce",
+            "raw",
+                packageName
+        ))
+
         // Seekbar
         seekBar.isClickable = false
 
@@ -70,6 +79,8 @@ class MainActivity : AppCompatActivity() {
         btnPause.setOnClickListener{ pauseMusic() }
         btnForward.setOnClickListener{ forwardMusic() }
         btnBackward.setOnClickListener { backwardMusic() }
+
+        seekBar.progress = startTime.toInt()
     }
 
     // Play Button
@@ -92,24 +103,23 @@ class MainActivity : AppCompatActivity() {
                         TimeUnit.MILLISECONDS.toMinutes(finalTime.toLong())) // Need to minus the first time unit in seconds before displaying
 
         )
-
-//        handler.postDelayed(updateSongTime, 100)
         var updateSongTime: Runnable = object: Runnable {
             override fun run() {
                 startTime = mediaPlayer.currentPosition.toDouble()
                 timeText.text = String.format("%d min, %d sec",
-                TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()),
-                TimeUnit.MILLISECONDS.toSeconds(startTime.toLong()) -
-                        TimeUnit.MINUTES.toSeconds(
-                            TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()))
-                    )
-
+                    TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()),
+                    TimeUnit.MILLISECONDS.toSeconds(startTime.toLong()) -
+                            TimeUnit.MINUTES.toSeconds(
+                                TimeUnit.MILLISECONDS.toMinutes(startTime.toLong()))
+                )
                 seekBar.progress = startTime.toInt()
-                handler.postDelayed(this, 100)
+                handler.postDelayed(this, 1000)
             }
         }
-
+        
     }
+    
+
 
     // Pause Button
     private fun pauseMusic() {
